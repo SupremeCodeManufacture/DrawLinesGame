@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_itm"
+    android:layout_width="@dimen/custom_custom_itm_size"
+    android:layout_height="@dimen/custom_custom_itm_size"
+    android:layout_margin="@dimen/custom_dim_btn_padding_top_btn"
+    android:background="@drawable/bg_rect_level"
+    android:foreground="?attr/selectableItemBackgroundBorderless">
+
+    <TextView
+        android:id="@+id/tv_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:background="@color/colorPrimaryDark"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_large"
+        android:textStyle="bold"
+        tools:text="99" />
+
+    <ImageView
+        android:id="@+id/ic_status"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/ic_check_100" />
+
+</RelativeLayout>

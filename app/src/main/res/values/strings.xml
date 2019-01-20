@@ -1,0 +1,42 @@
+<resources>
+    <string name="txt_name">DrawLine</string>
+
+    <string name="app_congtrat">Congratulation</string>
+    <string name="app_lvl_done">Level complete!</string>
+    <string name="app_next_lvl">Next level</string>
+
+    <string name="txt_exc">Excellent movements</string>
+    <string name="txt_good">Good movements</string>
+    <string name="txt_no_ok">It could be better</string>
+
+    <string name="app_moves">moves:</string>
+    <string name="app_best">best:</string>
+    <string name="app_pipe">pipe:</string>
+    <string name="app_level">Level:</string>
+
+    <string name="app_err">Oops something\'s gone wrong</string>
+
+    <string name="txt_types">Table types</string>
+    <string name="txt_levels">Table levels</string>
+
+    <string name="txt_levels1">Super easy levels</string>
+    <string name="txt_levels2">Easy levels</string>
+    <string name="txt_levels3">Medium levels</string>
+    <string name="txt_levels4">Hard levels</string>
+    <string name="txt_levels5">Super hard levels</string>
+
+    <string name="txt_settings">Settings</string>
+    <string name="rem_ads">Remove Ads</string>
+    <string name="txt_sel_theme">Select theme</string>
+    <string name="rate_us">Rate us</string>
+    <string name="supp">Support</string>
+    <string name="about">About</string>
+
+    <string name="error_open_google_play">Sorry, we can\'t open Google Play on your device. Please make sure Google Play Services are installed and there is available Internet connection.</string>
+    <string name="error_txt_no_mail">Oops you don\'t have any app to send email</string>
+    <string name="txt_err_upgrade">Sorry unexpected error has occurred. Please make sure your device is connected with an active Google account and has the latest version of Google Play Services.</string>
+    <string name="txt_worning_pro_done">Successful payment, you became a PRO user!</string>
+
+    <string name="txt_warn">Warning</string>
+
+</resources>

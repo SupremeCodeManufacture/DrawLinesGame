@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="txt_name">Нарисуй линии</string>
+
+    <string name="app_congtrat">Поздравляем</string>
+    <string name="app_lvl_done">Уровень пройден!</string>
+    <string name="app_next_lvl">Следующий уровень</string>
+
+    <string name="txt_exc">Отличные движения</string>
+    <string name="txt_good">Хорошие движения</string>
+    <string name="txt_no_ok">Могло быть и лучше</string>
+
+    <string name="app_moves">движении:</string>
+    <string name="app_best">лучший:</string>
+    <string name="app_pipe">покрытие:</string>
+    <string name="app_level">Уровень:</string>
+
+    <string name="app_err">Ой, что-то пошло не так</string>
+
+    <string name="txt_types">Типы таблиц</string>
+    <string name="txt_levels">Уровень таблиц</string>
+
+    <string name="txt_levels1">Супер легкие уровни</string>
+    <string name="txt_levels2">Легкие уровни</string>
+    <string name="txt_levels3">Средний уровени</string>
+    <string name="txt_levels4">Сложные уровни</string>
+    <string name="txt_levels5">Супер сложные уровни</string>
+
+    <string name="txt_settings">Настройки</string>
+    <string name="rem_ads">Убрать рекламу</string>
+    <string name="txt_sel_theme">Выберите тему</string>
+    <string name="rate_us">Оцените нас</string>
+    <string name="supp">Служба поддержки</string>
+    <string name="about">О приложении</string>
+
+    <string name="error_open_google_play">Извините, мы не можем открыть Google Play на вашем устройстве. Убедитесь, что установлены службы Google Play, и есть доступное интернет-соединение.</string>
+    <string name="error_txt_no_mail">У Вас установлено приложение для отправки электронной почты</string>
+    <string name="txt_err_upgrade">Произошла непредвиденная ошибка. Убедитесь, что ваше устройство подключено к активной учетной записи Google и службы Google Play обновлены до последней версии.</string>
+    <string name="txt_worning_pro_done">Вы успешно осуществили платёж и стали пользователем PRO версии!</string>
+
+    <string name="txt_warn">Предупреждение</string>
+
+</resources>

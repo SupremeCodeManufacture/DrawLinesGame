@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/custom_dim_margin"
+        android:layout_marginBottom="@dimen/custom_dim_margin"
+        android:background="@drawable/bg_btn_simple"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:text="@string/txt_settings"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium" />
+
+
+    <TextView
+        android:id="@+id/tv_remove_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@drawable/bg_btn"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:text="@string/rem_ads"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium_xs" />
+
+    <TextView
+        android:id="@+id/tv_sel_theme"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@drawable/bg_btn"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:visibility="gone"
+        android:text="@string/txt_sel_theme"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium_xs" />
+
+    <TextView
+        android:id="@+id/tv_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@drawable/bg_btn"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:text="@string/rate_us"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium_xs" />
+
+    <TextView
+        android:id="@+id/tv_support"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@drawable/bg_btn"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:text="@string/supp"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium_xs" />
+
+    <TextView
+        android:id="@+id/tv_about"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_horizontal_margin"
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_horizontal_margin"
+        android:background="@drawable/bg_btn"
+        android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+        android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+        android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn"
+        android:text="@string/about"
+        android:textColor="#ffffff"
+        android:textSize="@dimen/txt_medium_xs" />
+
+
+</LinearLayout>

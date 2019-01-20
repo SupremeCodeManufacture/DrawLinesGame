@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "51447364073",
+    "firebase_url": "https://drawline-f70c9.firebaseio.com",
+    "project_id": "drawline-f70c9",
+    "storage_bucket": "drawline-f70c9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:51447364073:android:d4e55b38b3b48edf",
+        "android_client_info": {
+          "package_name": "com.SupremeManufacture.DrawLines"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "51447364073-951f7v2a8k58744nal38udvt6ev5qno0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCC1mUi5uqJ8G7XwCnCm-crJ4mYdRvupDM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
