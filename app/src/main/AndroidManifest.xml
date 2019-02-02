@@ -56,6 +56,11 @@
             android:parentActivityName="view.activity.SplashScreenActivity"
             android:screenOrientation="portrait" />
 
+        <service android:name="logic.push_notification.MyFirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
 
         <!--to ignore appache http errors on SDK 28+ from ads-->
         <uses-library
@@ -66,6 +71,9 @@
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/ads_app_id" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="5f861d73578ecc0d1579cc51acdf8e481ad36f57" />
     </application>
 
 </manifest>

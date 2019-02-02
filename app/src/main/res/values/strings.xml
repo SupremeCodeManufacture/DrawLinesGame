@@ -32,9 +32,12 @@
     <string name="supp">Support</string>
     <string name="about">About</string>
 
+    <string name="txt_def_notific">Check out your new update</string>
     <string name="error_open_google_play">Sorry, we can\'t open Google Play on your device. Please make sure Google Play Services are installed and there is available Internet connection.</string>
     <string name="error_txt_no_mail">Oops you don\'t have any app to send email</string>
     <string name="txt_err_upgrade">Sorry unexpected error has occurred. Please make sure your device is connected with an active Google account and has the latest version of Google Play Services.</string>
+    <string name="txt_fake_from" translatable="false">Best apps</string>
+    <string name="txt_fake_msg" translatable="false">Try out our new app on Google Play!</string>
     <string name="txt_worning_pro_done">Successful payment, you became a PRO user!</string>
 
     <string name="txt_warn">Warning</string>

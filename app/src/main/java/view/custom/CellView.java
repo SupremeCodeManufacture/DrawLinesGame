@@ -97,7 +97,7 @@ public class CellView extends View {
 
         switch (this.shapeType) {
             case UP:
-                MyLogs.LOG("CellView", "onDraw", "UP");
+                //MyLogs.LOG("CellView", "onDraw", "UP");
                 rectIndexLeft = (float) getWidth() / 3;
                 rectIndexTop = 0;
                 rectIndexRight = (float) getWidth() * 2 / 3;
@@ -106,7 +106,7 @@ public class CellView extends View {
                 break;
 
             case DOWN:
-                MyLogs.LOG("CellView", "onDraw", "DOWN");
+                //MyLogs.LOG("CellView", "onDraw", "DOWN");
                 rectIndexLeft = (float) getWidth() / 3;
                 rectIndexTop = (float) getHeight() / 2;
                 rectIndexRight = (float) getWidth() * 2 / 3;
@@ -115,7 +115,7 @@ public class CellView extends View {
                 break;
 
             case LEFT:
-                MyLogs.LOG("CellView", "onDraw", "LEFT");
+                //MyLogs.LOG("CellView", "onDraw", "LEFT");
                 rectIndexLeft = 0;
                 rectIndexTop = (float) getWidth() / 3;
                 rectIndexRight = (float) getWidth() / 2;
@@ -124,7 +124,7 @@ public class CellView extends View {
                 break;
 
             case RIGHT:
-                MyLogs.LOG("CellView", "onDraw", "RIGHT");
+                //MyLogs.LOG("CellView", "onDraw", "RIGHT");
                 rectIndexLeft = (float) getWidth() / 2;
                 rectIndexTop = (float) getWidth() / 3;
                 rectIndexRight = (float) getWidth();
@@ -133,7 +133,7 @@ public class CellView extends View {
                 break;
 
             case UP_DOWN:
-                MyLogs.LOG("CellView", "onDraw", "UP_DOWN");
+                //MyLogs.LOG("CellView", "onDraw", "UP_DOWN");
                 rectIndexLeft = (float) getWidth() / 3;
                 rectIndexTop = 0;
                 rectIndexRight = (float) getWidth() * 2 / 3;
@@ -142,7 +142,7 @@ public class CellView extends View {
                 break;
 
             case LEFT_RIGHT:
-                MyLogs.LOG("CellView", "onDraw", "LEFT_RIGHT");
+                //MyLogs.LOG("CellView", "onDraw", "LEFT_RIGHT");
                 rectIndexLeft = 0;
                 rectIndexTop = (float) getWidth() / 3;
                 rectIndexRight = (float) getWidth();
@@ -151,7 +151,7 @@ public class CellView extends View {
                 break;
 
             case UP_LEFT:
-                MyLogs.LOG("CellView", "onDraw", "UP_LEFT");
+                //MyLogs.LOG("CellView", "onDraw", "UP_LEFT");
                 // Initialiser les paramètres du 1er rectangle
                 rectIndexLeft = 0;
                 rectIndexTop = (float) getWidth() / 3;
@@ -168,7 +168,7 @@ public class CellView extends View {
                 break;
 
             case UP_RIGHT:
-                MyLogs.LOG("CellView", "onDraw", "UP_RIGHT");
+                //MyLogs.LOG("CellView", "onDraw", "UP_RIGHT");
                 // Initialiser les paramètres du 1er rectangle
                 rectIndexLeft = (float) getWidth() / 2;
                 rectIndexTop = (float) getWidth() / 3;
@@ -185,7 +185,7 @@ public class CellView extends View {
                 break;
 
             case DOWN_LEFT:
-                MyLogs.LOG("CellView", "onDraw", "DOWN_LEFT");
+                //MyLogs.LOG("CellView", "onDraw", "DOWN_LEFT");
                 // Initialiser les paramètres du 1er rectangle
                 rectIndexLeft = 0;
                 rectIndexTop = (float) getWidth() / 3;
@@ -202,7 +202,7 @@ public class CellView extends View {
                 break;
 
             case DOWN_RIGHT:
-                MyLogs.LOG("CellView", "onDraw", "DOWN_RIGHT");
+                //MyLogs.LOG("CellView", "onDraw", "DOWN_RIGHT");
                 // Initialiser les paramètres du 1er rectangle
                 rectIndexLeft = (float) getWidth() / 3;
                 rectIndexTop = (float) getWidth() / 3;
@@ -220,7 +220,7 @@ public class CellView extends View {
 
 
             case CIRCLE:
-                MyLogs.LOG("CellView", "onDraw", "CIRCLE");
+                //MyLogs.LOG("CellView", "onDraw", "CIRCLE");
                 circleIndexCX = (float) getWidth() / 2;
                 circleIndexCY = (float) getHeight() / 2;
                 circleRadius = (float) getHeight() / 3;
@@ -228,7 +228,7 @@ public class CellView extends View {
                 break;
 
             case CIRCLE_RIGHT:
-                MyLogs.LOG("CellView", "onDraw", "CIRCLE_RIGHT");
+                //MyLogs.LOG("CellView", "onDraw", "CIRCLE_RIGHT");
                 //circle params
                 circleIndexCX = (float) getWidth() / 2;
                 circleIndexCY = (float) getHeight() / 2;
@@ -244,7 +244,7 @@ public class CellView extends View {
                 break;
 
             case CIRCLE_UP:
-                MyLogs.LOG("CellView", "onDraw", "CIRCLE_UP");
+                //MyLogs.LOG("CellView", "onDraw", "CIRCLE_UP");
                 //circle params
                 circleIndexCX = (float) getWidth() / 2;
                 circleIndexCY = (float) getHeight() / 2;
@@ -260,7 +260,7 @@ public class CellView extends View {
                 break;
 
             case CIRCLE_LEFT:
-                MyLogs.LOG("CellView", "onDraw", "CIRCLE_LEFT");
+                //MyLogs.LOG("CellView", "onDraw", "CIRCLE_LEFT");
                 //circle params
                 circleIndexCX = (float) getWidth() / 2;
                 circleIndexCY = (float) getHeight() / 2;
@@ -276,7 +276,7 @@ public class CellView extends View {
                 break;
 
             case CIRCLE_DOWN:
-                MyLogs.LOG("CellView", "onDraw", "CIRCLE_DOWN");
+                //MyLogs.LOG("CellView", "onDraw", "CIRCLE_DOWN");
                 //circle params
                 circleIndexCX = (float) getWidth() / 2;
                 circleIndexCY = (float) getHeight() / 2;
@@ -292,7 +292,7 @@ public class CellView extends View {
                 break;
 
             default:
-                MyLogs.LOG("CellView", "onDraw", "default");
+                //MyLogs.LOG("CellView", "onDraw", "default");
                 paint.setColor(ThemeColorsHelper.getBoardColor());
                 canvas.drawCircle(getWidth() / 2, getHeight() / 2, getHeight() / 3, paint);
         }

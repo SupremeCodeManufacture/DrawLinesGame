@@ -1,4 +1,20 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
+
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
 
@@ -8,8 +24,8 @@ android {
         applicationId "com.SupremeManufacture.DrawLines"
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 133
-        versionName "1.33"
+        versionCode 135
+        versionName "1.35"
     }
 
     signingConfigs {
@@ -41,8 +57,10 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:28.0.0'
     implementation 'com.android.support:recyclerview-v7:28.0.0'
     implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.firebase:firebase-messaging:17.3.4'
     implementation 'com.github.dmitriisoloviof:easyadslib:v17.1.2-alpha'
     implementation 'com.google.code.gson:gson:2.4'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.9.8'
 }
 
 apply plugin: "com.google.gms.google-services"

@@ -152,7 +152,7 @@ public class GameActivity extends AppCompatActivity implements
         if (pairIds != null) {
             final String tabId = pairIds.first;
             final String labelId = pairIds.second;
-            MyLogs.LOG("GameActivity", "asyncLoadGame", "CUR_LEVEL_POS: " + CUR_LEVEL_POS + " tabId: " + tabId + " labelId: " + labelId);
+            //MyLogs.LOG("GameActivity", "asyncLoadGame", "CUR_LEVEL_POS: " + CUR_LEVEL_POS + " tabId: " + tabId + " labelId: " + labelId);
 
             new AsyncTaskWorker(
                     new CallableObj<LevelObj>() {
@@ -288,7 +288,7 @@ public class GameActivity extends AppCompatActivity implements
     private void deleteEntireRoute(String id) {
         for (RouteObj routeObj : mGameLevelData.getRouteObjs()) {
             if (routeObj.getId().equals(id) && routeObj.getTempRouteCoordonates() != null) {
-                MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "routes: " + routeObj.getTempRouteCoordonates().toString());
+                //MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "routes: " + routeObj.getTempRouteCoordonates().toString());
 
                 for (String cellData : routeObj.getTempRouteCoordonates()) {
                     String[] array = cellData.split("\\.");
@@ -306,8 +306,8 @@ public class GameActivity extends AppCompatActivity implements
                 routeObj.getTempRouteCoordonates().clear();
                 fillUpGameTable(mTabSize);
 
-                MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "routes after: " + routeObj.getTempRouteCoordonates().toString());
-                MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "srte 4.0: " + mGameCellsArray[4][0].getShapeType().name());
+                //MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "routes after: " + routeObj.getTempRouteCoordonates().toString());
+                //MyLogs.LOG("GameActivity", "094353465 - deleteEntireRoute", "srte 4.0: " + mGameCellsArray[4][0].getShapeType().name());
 
                 //no need to loop all list
                 return;
@@ -317,10 +317,10 @@ public class GameActivity extends AppCompatActivity implements
 
     private void deleteOtherRoutePart(String id, int rowPos, int colPos, boolean keepHittedCell) {
         for (RouteObj routeObj : mGameLevelData.getRouteObjs()) {
-            MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "looping: " + routeObj.getId() + " need: " + id);
+            //MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "looping: " + routeObj.getId() + " need: " + id);
 
             if (routeObj.getId().equals(id) && routeObj.getTempRouteCoordonates() != null) {
-                MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "route: " + routeObj.getTempRouteCoordonates().toString());
+                //MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "route: " + routeObj.getTempRouteCoordonates().toString());
 
                 int tempSize = routeObj.getTempRouteCoordonates().size();
                 int posToStartDelete = tempSize;
@@ -331,7 +331,7 @@ public class GameActivity extends AppCompatActivity implements
                     int curCol = Utils.safeParseToInt(curCellArray[2]);
 
                     if (curRow == rowPos && curCol == colPos) {
-                        MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "detect delete start curRow: " + curRow + " curCol: " + curCol);
+                        //MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "detect delete start curRow: " + curRow + " curCol: " + curCol);
                         posToStartDelete = pos;
 
                         if (keepHittedCell) {
@@ -374,7 +374,7 @@ public class GameActivity extends AppCompatActivity implements
 
                 if (keepHittedCell) fillUpGameTable(mTabSize);
 
-                MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "route after: " + routeObj.getTempRouteCoordonates().toString());
+                //MyLogs.LOG("GameActivity", "094353465 - deleteOtherRoutePart", "route after: " + routeObj.getTempRouteCoordonates().toString());
 
                 //no need to loop all routes - it;s needed only current one
                 return;
@@ -398,7 +398,7 @@ public class GameActivity extends AppCompatActivity implements
             }
         }
 
-        MyLogs.LOG("GameActivity", "getPipe", "total: " + total + " done: " + done + " %: " + (done * 100 / total));
+        //MyLogs.LOG("GameActivity", "getPipe", "total: " + total + " done: " + done + " %: " + (done * 100 / total));
 
         return done * 100 / total;
     }
@@ -421,11 +421,11 @@ public class GameActivity extends AppCompatActivity implements
     public boolean isRouteCompleted() {
         if (mCurrentRoute.getTempRouteCoordonates() != null) {
 
-            MyLogs.LOG("GameActivity", "isRouteCompleted", "temp: " + mCurrentRoute.getTempRouteCoordonates().toString());
+            //MyLogs.LOG("GameActivity", "isRouteCompleted", "temp: " + mCurrentRoute.getTempRouteCoordonates().toString());
 
             for (String parentsPair : mGameLevelData.getParentCoordonates()) {
                 if (mCurrentRoute.getTempRouteCoordonates().containsAll(new ArrayList<String>(Arrays.asList(parentsPair.split(","))))) {
-                    MyLogs.LOG("GameActivity", "isRouteCompleted", "aaaaaaaaaaaac:  " + parentsPair);
+                    //MyLogs.LOG("GameActivity", "isRouteCompleted", "aaaaaaaaaaaac:  " + parentsPair);
                     return true;
                 }
             }
@@ -435,38 +435,38 @@ public class GameActivity extends AppCompatActivity implements
     }
 
     private boolean isNewCellConectedToRoute(int indexRow, int indexCol) {
-        MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "indexRow: " + indexRow + " indexCol: " + indexCol);
+        //MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "indexRow: " + indexRow + " indexCol: " + indexCol);
 
         if (mGameCellsArray[indexRow][indexCol].isParent()) {
-            MyLogs.LOG("GameActivity", "", "parent");
+            //MyLogs.LOG("GameActivity", "", "parent");
             return true;
         }
 
         //prev cell up
         if (indexRow > 0 && mGameCellsArray[indexRow - 1][indexCol] != null && mGameCellsArray[indexRow - 1][indexCol].getUniqueId() != null && mGameCellsArray[indexRow - 1][indexCol].getUniqueId().equals(mTempRouteId)) {
-            MyLogs.LOG("GameActivity", "", "down");
+            //MyLogs.LOG("GameActivity", "", "down");
             return true;
         }
 
         //prev cell down
         if (indexRow < mTabSize - 1 && mGameCellsArray[indexRow + 1][indexCol] != null && mGameCellsArray[indexRow + 1][indexCol].getUniqueId() != null && mGameCellsArray[indexRow + 1][indexCol].getUniqueId().equals(mTempRouteId)) {
-            MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "down");
+            //MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "down");
             return true;
         }
 
         //prev cell left
         if (indexCol > 0 && mGameCellsArray[indexRow][indexCol - 1] != null && mGameCellsArray[indexRow][indexCol - 1].getUniqueId() != null && mGameCellsArray[indexRow][indexCol - 1].getUniqueId().equals(mTempRouteId)) {
-            MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "left");
+            //MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "left");
             return true;
         }
 
         //prev cell right
         if (indexCol < mTabSize - 1 && mGameCellsArray[indexRow][indexCol + 1] != null && mGameCellsArray[indexRow][indexCol + 1].getUniqueId() != null && mGameCellsArray[indexRow][indexCol + 1].getUniqueId().equals(mTempRouteId)) {
-            MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "right");
+            //MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "right");
             return true;
         }
 
-        MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "oh no!!!!!!!!");
+        //MyLogs.LOG("GameActivity", "isNewCellConectedToRoute", "oh no!!!!!!!!");
         return false;
     }
 
@@ -483,7 +483,7 @@ public class GameActivity extends AppCompatActivity implements
         int indexCurrentCellCol = currentCell.getIndexCol();
         CellView.ShapeType prevousState = prevCell.getShapeType();
 
-        MyLogs.LOG("GameActivity", "onDrawMovement", "BEFOR prevousState: " + prevousState.name() + " cur state: " + currentCell.getShapeType().name() + "  T: " + System.currentTimeMillis());
+        //MyLogs.LOG("GameActivity", "onDrawMovement", "BEFOR prevousState: " + prevousState.name() + " cur state: " + currentCell.getShapeType().name() + "  T: " + System.currentTimeMillis());
 
         // From Right to Left
         if (indexPreviousCellRow == indexCurrentCellRow && indexPreviousCellCol > indexCurrentCellCol) {
@@ -493,7 +493,7 @@ public class GameActivity extends AppCompatActivity implements
             currentCell.setShapeType(Utils.getCurCellShapeType(currentCell.isParent(), CellView.ShapeType.RIGHT));
             mGameCellsArray[indexCurrentCellRow][indexCurrentCellCol] = currentCell;
 
-            MyLogs.LOG("GameActivity", "onDrawMovement", "Right to Left");
+            //MyLogs.LOG("GameActivity", "onDrawMovement", "Right to Left");
         } else
 
             // From Left to Right
@@ -503,7 +503,7 @@ public class GameActivity extends AppCompatActivity implements
 
                 currentCell.setShapeType(Utils.getCurCellShapeType(currentCell.isParent(), CellView.ShapeType.LEFT));
                 mGameCellsArray[indexCurrentCellRow][indexCurrentCellCol] = currentCell;
-                MyLogs.LOG("GameActivity", "onDrawMovement", "Left to Right");
+                //MyLogs.LOG("GameActivity", "onDrawMovement", "Left to Right");
             } else
 
                 // From Down to Up
@@ -513,7 +513,7 @@ public class GameActivity extends AppCompatActivity implements
 
                     currentCell.setShapeType(Utils.getCurCellShapeType(currentCell.isParent(), CellView.ShapeType.DOWN));
                     mGameCellsArray[indexCurrentCellRow][indexCurrentCellCol] = currentCell;
-                    MyLogs.LOG("GameActivity", "onDrawMovement", "Down to Up");
+                    //MyLogs.LOG("GameActivity", "onDrawMovement", "Down to Up");
                 } else
 
                     // From Up to Down
@@ -523,13 +523,13 @@ public class GameActivity extends AppCompatActivity implements
 
                         currentCell.setShapeType(Utils.getCurCellShapeType(currentCell.isParent(), CellView.ShapeType.UP));
                         mGameCellsArray[indexCurrentCellRow][indexCurrentCellCol] = currentCell;
-                        MyLogs.LOG("GameActivity", "onDrawMovement", "Up to Down");
+                        //MyLogs.LOG("GameActivity", "onDrawMovement", "Up to Down");
                     } else {
-                        MyLogs.LOG("GameActivity", "onDrawMovement", "wazaaaaaaaaap stop mo route");
+                        //MyLogs.LOG("GameActivity", "onDrawMovement", "wazaaaaaaaaap stop mo route");
                         mIsDrawAllowed = false;
                     }
 
-        MyLogs.LOG("GameActivity", "onDrawMovement", prevCell.getIndexRow() + "," + prevCell.getIndexCol() + " " + prevCell.getShapeType().name() + "  ==> " + currentCell.getIndexRow() + "," + currentCell.getIndexCol() + " " + currentCell.getShapeType().name());
+        //MyLogs.LOG("GameActivity", "onDrawMovement", prevCell.getIndexRow() + "," + prevCell.getIndexCol() + " " + prevCell.getShapeType().name() + "  ==> " + currentCell.getIndexRow() + "," + currentCell.getIndexCol() + " " + currentCell.getShapeType().name());
 
         fillUpGameTable(mTabSize);
     }
@@ -555,7 +555,7 @@ public class GameActivity extends AppCompatActivity implements
         CellView currentCell = mGameCellsArray[indexRow][indexCol];
 
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
-            MyLogs.LOG("GameActivity", "onTouch", "ACTION_DOWN - indexRow: " + indexRow + " indexCol: " + indexCol);
+            //MyLogs.LOG("GameActivity", "onTouch", "ACTION_DOWN - indexRow: " + indexRow + " indexCol: " + indexCol);
 
             //if board color cell - do nothing
             if (currentCell.getColor() != ThemeColorsHelper.getBoardColor()) {
@@ -580,7 +580,7 @@ public class GameActivity extends AppCompatActivity implements
         }
 
         if (event.getAction() == MotionEvent.ACTION_UP) {
-            MyLogs.LOG("GameActivity", "onTouch", "ACTION_UP - indexRow: " + indexRow + " indexCol: " + indexCol);
+            //MyLogs.LOG("GameActivity", "onTouch", "ACTION_UP - indexRow: " + indexRow + " indexCol: " + indexCol);
 
             //reset temp values
             mDrawTempCellList.clear();
@@ -638,7 +638,7 @@ public class GameActivity extends AppCompatActivity implements
                 //detect if it's route completed - disable draw
                 if (currentCell.isParent() && isRouteCompleted()) {
                     //Utils.isRouteCompleted(mCurrentRoute, mGameLevelData.getParentCoordonates(), mTempRouteId)) {
-                    MyLogs.LOG("GameActivity", "onTouch", "ACTION_MOVE - dooooooooooone");
+                    //MyLogs.LOG("GameActivity", "onTouch", "ACTION_MOVE - dooooooooooone");
                     mIsRouteCompletedLock = true;
                 }
             }

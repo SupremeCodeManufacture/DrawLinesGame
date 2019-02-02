@@ -22,7 +22,7 @@
 
     <string name="txt_levels1">Супер легкие уровни</string>
     <string name="txt_levels2">Легкие уровни</string>
-    <string name="txt_levels3">Средний уровени</string>
+    <string name="txt_levels3">Средние уровени</string>
     <string name="txt_levels4">Сложные уровни</string>
     <string name="txt_levels5">Супер сложные уровни</string>
 
@@ -33,6 +33,7 @@
     <string name="supp">Служба поддержки</string>
     <string name="about">О приложении</string>
 
+    <string name="txt_def_notific">Проверьте ваше новое обновление</string>
     <string name="error_open_google_play">Извините, мы не можем открыть Google Play на вашем устройстве. Убедитесь, что установлены службы Google Play, и есть доступное интернет-соединение.</string>
     <string name="error_txt_no_mail">У Вас установлено приложение для отправки электронной почты</string>
     <string name="txt_err_upgrade">Произошла непредвиденная ошибка. Убедитесь, что ваше устройство подключено к активной учетной записи Google и службы Google Play обновлены до последней версии.</string>

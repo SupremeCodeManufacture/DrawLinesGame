@@ -85,7 +85,7 @@ public class SettingsActivity extends BaseActivity implements
             case R.id.tv_support:
                 try {
                     Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto", GenericConstants.SUPPORT_EMAIL, null));
-                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, App.getAppCtx().getResources().getString(R.string.app_name));
+                    emailIntent.putExtra(Intent.EXTRA_SUBJECT, App.getAppCtx().getResources().getString(R.string.txt_name));
                     startActivity(emailIntent);
 
                 } catch (ActivityNotFoundException e) {
@@ -105,24 +105,24 @@ public class SettingsActivity extends BaseActivity implements
     @Override
     public void onIabSetupFinished(IabResult result) {
         if (result.isSuccess()) {
-            MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Setting up In-app Billing succesfull");
+            //MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Setting up In-app Billing succesfull");
             PaymentHelper.doLifePayment(SettingsActivity.this, App.getPaymentHelper(), SettingsActivity.this);
 
         } else {
-            MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
+            //MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
         }
     }
 
     @Override
     public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
         if (result.isSuccess()) {
-            MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "purchese SKU: " + purchase.getSku());
+            //MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "purchese SKU: " + purchase.getSku());
             App.setUserPro(true);
             decideDemoOrPro();
             Toast.makeText(SettingsActivity.this, App.getAppCtx().getResources().getString(R.string.txt_worning_pro_done), Toast.LENGTH_LONG).show();
 
         } else {
-            MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "Error purchasing: " + result);
+            //MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "Error purchasing: " + result);
         }
     }
 }

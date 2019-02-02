@@ -24,7 +24,7 @@ public class BaseActivity extends AppCompatActivity implements
             super.onActivityResult(requestCode, resultCode, data);
 
         } else {
-            MyLogs.LOG("BaseActivity", "onActivityResult", "handled by IABUtil");
+            //MyLogs.LOG("BaseActivity", "onActivityResult", "handled by IABUtil");
         }
     }
 

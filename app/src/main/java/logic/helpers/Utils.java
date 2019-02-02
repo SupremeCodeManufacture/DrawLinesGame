@@ -446,7 +446,7 @@ public class Utils {
                 }
         }
 
-        MyLogs.LOG("Utils", "000111222 - getMiddleShapeState", "NONE");
+        //MyLogs.LOG("Utils", "000111222 - getMiddleShapeState", "NONE");
         return CellView.ShapeType.NONE;
     }
 
@@ -458,16 +458,16 @@ public class Utils {
     public static boolean isAllowedToHitParent(CellView currentCell, RouteObj routeObj, String curRouteId) {
         //different parent - other route
         if (!currentCell.getUniqueId().equals(curRouteId)) {
-            MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops different parent");
+            //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops different parent");
             return false;
 
             //same parent - check for a match
         } else if (isSameParent(routeObj, currentCell)) {
-            MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops same parent twice");
+            //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops same parent twice");
             return false;
         }
 
-        MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "zaebisi!");
+        //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "zaebisi!");
         return true;
     }
 
@@ -475,7 +475,7 @@ public class Utils {
         if (routeObj.getTempRouteCoordonates() != null && routeObj.getTempRouteCoordonates().size() > 1) {
             String firstCellData = routeObj.getTempRouteCoordonates().get(0);
             String curCellData = currentCell.getUniqueId() + "." + currentCell.getIndexRow() + "." + currentCell.getIndexCol();
-            MyLogs.LOG("Utils", "094353465 - isSameParent", "firstCellData: " + firstCellData + " curCellData: " + curCellData);
+            //MyLogs.LOG("Utils", "094353465 - isSameParent", "firstCellData: " + firstCellData + " curCellData: " + curCellData);
 
             return firstCellData.equals(curCellData);
         }
@@ -498,12 +498,12 @@ public class Utils {
     public static boolean isRouteCompleted(RouteObj routeObj, String[] parentPairs, String curId) {
         if (routeObj.getId().equals(curId) && routeObj.getTempRouteCoordonates() != null) {
             String firstCellData = routeObj.getTempRouteCoordonates().get(0);
-            MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "routes: " + routeObj.getTempRouteCoordonates().toString() + " firstCellData: " + firstCellData);
+            //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "routes: " + routeObj.getTempRouteCoordonates().toString() + " firstCellData: " + firstCellData);
 
             int listSize = routeObj.getTempRouteCoordonates().size();
             if (listSize > 1) {
                 String lastCellData = routeObj.getTempRouteCoordonates().get(listSize - 1);
-                MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "lastCellData: " + lastCellData);
+                //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "lastCellData: " + lastCellData);
 
                 return isRouteCompleted(parentPairs, firstCellData, lastCellData);
             }
@@ -515,7 +515,7 @@ public class Utils {
     public static boolean isRouteCompleted(String[] parentPairs, String cellData1, String cellData2) {
         for (String pairData : parentPairs) {
             List<String> arrayPairs = new ArrayList<String>(Arrays.asList(pairData.split(",")));
-            MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "arrayPairs: " + arrayPairs.toString());
+            //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "arrayPairs: " + arrayPairs.toString());
 
             if (arrayPairs.contains(cellData1) && arrayPairs.contains(cellData2))
                 return true;
@@ -544,11 +544,11 @@ public class Utils {
             case UP_RIGHT:
             case DOWN_LEFT:
             case DOWN_RIGHT:
-                MyLogs.LOG("Utils", "094353465 - isInMiddleOfRoute", "true");
+                //MyLogs.LOG("Utils", "094353465 - isInMiddleOfRoute", "true");
                 return true;
         }
 
-        MyLogs.LOG("Utils", "000111222 - isInMiddleOfRoute", "false");
+        //MyLogs.LOG("Utils", "000111222 - isInMiddleOfRoute", "false");
         return false;
     }
 

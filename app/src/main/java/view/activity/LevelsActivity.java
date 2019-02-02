@@ -72,7 +72,7 @@ public class LevelsActivity extends AppCompatActivity implements OnTableLevelSel
     }
 
     private void asyncLoadAllRecent(final String tableId) {
-        MyLogs.LOG("LevelsActivity", "asyncLoadAllRecent", "tableId: " + tableId);
+        //MyLogs.LOG("LevelsActivity", "asyncLoadAllRecent", "tableId: " + tableId);
 
         new AsyncTaskWorker(
                 new CallableObj<LevelObj[]>() {

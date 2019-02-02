@@ -97,11 +97,11 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
     @Override
     public void onIabSetupFinished(IabResult result) {
         if (result.isSuccess()) {
-            MyLogs.LOG("TablesActivity", "onIabSetupFinished", "Setting up In-app Billing succesfull");
+            //MyLogs.LOG("TablesActivity", "onIabSetupFinished", "Setting up In-app Billing succesfull");
             PaymentHelper.getLifePaymentStatus(App.getPaymentHelper(), TablesActivity.this);
 
         } else {
-            MyLogs.LOG("TablesActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
+            //MyLogs.LOG("TablesActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
         }
     }
 
@@ -110,11 +110,11 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
         if (result.isSuccess()) {
             boolean isPro = inventory.hasPurchase(GenericConstants.KEY_IN_APP_SKU_ID);
 
-            MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "isPro: " + isPro);
+            //MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "isPro: " + isPro);
             App.setUserPro(isPro);
 
         } else {
-            MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "Error query inventory: " + result);
+            //MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "Error query inventory: " + result);
         }
     }
 }
