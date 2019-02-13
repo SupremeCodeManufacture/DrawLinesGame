@@ -16,6 +16,7 @@
 
 
     <!--static sizes for text-->
+    <dimen name="txt_small_xs">16dp</dimen>
     <dimen name="txt_small">28dp</dimen>
     <dimen name="txt_medium_xs">32dp</dimen>
     <dimen name="txt_medium">36dp</dimen>

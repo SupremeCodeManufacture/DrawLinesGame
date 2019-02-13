@@ -6,7 +6,7 @@
     <dimen name="custom_dim_btn_padding_top_btn">8dp</dimen>
     <dimen name="custom_dim_margin">24dp</dimen>
     <dimen name="custom_dim_btn_padding_right_left">32dp</dimen>
-    <dimen name="custom_custom_itm_size">100dp</dimen>
+    <dimen name="custom_custom_itm_size">90dp</dimen>
     <dimen name="img_itm_dim">32dp</dimen>
 
     <dimen name="dim_2_rows_list_height">72dp</dimen>

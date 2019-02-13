@@ -41,5 +41,10 @@
     <string name="txt_worning_pro_done">Successful payment, you became a PRO user!</string>
 
     <string name="txt_warn">Warning</string>
+    <string name="txt_no_ads">No ads for life</string>
+    <string name="txt_no_lock">All levels unlocked</string>
+    <string name="txt_buy_all">No ads + Levels unlocked</string>
+    <string name="txt_buy_now">Buy now for</string>
+    <string name="txt_buy_deal">Save 25%</string>
 
 </resources>

@@ -40,5 +40,10 @@
     <string name="txt_worning_pro_done">Вы успешно осуществили платёж и стали пользователем PRO версии!</string>
 
     <string name="txt_warn">Предупреждение</string>
+    <string name="txt_no_ads">Без рекламы навсегда</string>
+    <string name="txt_no_lock">Все уровни разблокированы</string>
+    <string name="txt_buy_all">Без рекламы + Все уровни разблокированы</string>
+    <string name="txt_buy_now">Купить сейчас за</string>
+    <string name="txt_buy_deal">Сэкономьте 25%</string>
 
 </resources>

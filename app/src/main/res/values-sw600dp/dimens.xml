@@ -6,7 +6,7 @@
 <dimen name="custom_dim_btn_padding_top_btn">8dp</dimen>
 <dimen name="custom_dim_margin">24dp</dimen>
 <dimen name="custom_dim_btn_padding_right_left">56dp</dimen>
-<dimen name="custom_custom_itm_size">100dp</dimen>
+<dimen name="custom_custom_itm_size">120dp</dimen>
 <dimen name="img_itm_dim">56dp</dimen>
 
 <dimen name="dim_2_rows_list_height">72dp</dimen>
@@ -16,7 +16,8 @@
 
 
 <!--static sizes for text-->
-<dimen name="txt_small">21dp</dimen>
+    <dimen name="txt_small_xs">14dp</dimen>
+    <dimen name="txt_small">21dp</dimen>
 <dimen name="txt_medium_xs">24dp</dimen>
 <dimen name="txt_medium">27dp</dimen>
 <dimen name="txt_large">33dp</dimen>
