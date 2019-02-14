@@ -1,32 +1,17 @@
 package logic.helpers;
 
-import android.accounts.Account;
-import android.accounts.AccountManager;
-import android.os.Environment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.util.Pair;
 
 import com.SupremeManufacture.DrawLines.R;
 import com.google.gson.Gson;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
-
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
 
 import data.App;
 import data.LevelObj;
@@ -34,8 +19,6 @@ import data.RouteObj;
 import data.SharedPrefs;
 import data.TableObj;
 import view.custom.CellView;
-
-import static android.content.ContentValues.TAG;
 
 public class Utils {
 
@@ -65,10 +48,22 @@ public class Utils {
 
             for (TableObj tableObj : tableObjs) {
 
-                for (LevelObj levelObj : tableObj.getTabLevels()) {
-                    list.add(tableObj.getTabId() + "," + levelObj.getLevelId());
-                }
+                //all levels
+                if (App.isPaidFull() || App.isPaidUnlockLvls()) {
+                    for (LevelObj levelObj : tableObj.getTabLevels()) {
+                        list.add(tableObj.getTabId() + "," + levelObj.getLevelId());
+                    }
 
+                    //only allowed levels
+                } else {
+                    LevelObj[] levelObjs = tableObj.getTabLevels();
+                    int levelsCount = levelObjs.length;
+                    int endLockPos = levelsCount / 2;
+
+                    for (int pos = 0; pos < endLockPos; pos++) {
+                        list.add(tableObj.getTabId() + "," + levelObjs[pos].getLevelId());
+                    }
+                }
             }
 
         } catch (Exception e) {
@@ -77,6 +72,27 @@ public class Utils {
 
         return list;
     }
+
+    public static void autodetectLockedLevels() {
+        try {
+            TableObj[] tableObjs = new Gson().fromJson(loadJSONFromAsset(), TableObj[].class);
+
+            for (TableObj tableObj : tableObjs) {
+
+                LevelObj[] levelObjs = tableObj.getTabLevels();
+                int levelsCount = levelObjs.length;
+                int startLockPos = levelsCount / 2;
+
+                for (int pos = startLockPos; pos < levelsCount; pos++) {
+                    storeLockedLevels(tableObj.getTabId() + "," + levelObjs[pos].getLevelId());
+                }
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
 
     public static TableObj[] getTableObjs() {
         try {
@@ -185,6 +201,33 @@ public class Utils {
         }
     }
 
+    public static List<String> getLockedLevelsList() {
+        List<String> valuesList = new ArrayList<>();
+        String storedContent = SharedPrefs.getSharedPreferencesString(SharedPrefs.KEY_LOCKED, "");
+
+        if (storedContent != null) {
+            valuesList = new ArrayList<String>(Arrays.asList(storedContent.split("\\|")));
+        }
+
+        return valuesList;
+    }
+
+    private static void storeLockedLevels(String completedLvlData) {
+        String loackedContent = SharedPrefs.getSharedPreferencesString(SharedPrefs.KEY_LOCKED, "");
+
+        boolean alreadyLocked = false;
+
+        if (loackedContent != null) {
+            List<String> valuesList = new ArrayList<String>(Arrays.asList(loackedContent.split("\\|")));
+
+            alreadyLocked = valuesList.contains(completedLvlData);
+        }
+
+        if (!alreadyLocked) {
+            loackedContent = loackedContent + completedLvlData + "|";
+            SharedPrefs.setSharedPreferencesString(SharedPrefs.KEY_LOCKED, loackedContent);
+        }
+    }
 
     public static int safeParseToInt(String number) {
         try {
@@ -446,7 +489,7 @@ public class Utils {
                 }
         }
 
-        //MyLogs.LOG("Utils", "000111222 - getMiddleShapeState", "NONE");
+        MyLogs.LOG("Utils", "000111222 - getMiddleShapeState", "NONE");
         return CellView.ShapeType.NONE;
     }
 
@@ -458,16 +501,16 @@ public class Utils {
     public static boolean isAllowedToHitParent(CellView currentCell, RouteObj routeObj, String curRouteId) {
         //different parent - other route
         if (!currentCell.getUniqueId().equals(curRouteId)) {
-            //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops different parent");
+            MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops different parent");
             return false;
 
             //same parent - check for a match
         } else if (isSameParent(routeObj, currentCell)) {
-            //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops same parent twice");
+            MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "oops same parent twice");
             return false;
         }
 
-        //MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "zaebisi!");
+        MyLogs.LOG("Utils", "094353465 - isAllowedToHitParent", "zaebisi!");
         return true;
     }
 
@@ -475,7 +518,7 @@ public class Utils {
         if (routeObj.getTempRouteCoordonates() != null && routeObj.getTempRouteCoordonates().size() > 1) {
             String firstCellData = routeObj.getTempRouteCoordonates().get(0);
             String curCellData = currentCell.getUniqueId() + "." + currentCell.getIndexRow() + "." + currentCell.getIndexCol();
-            //MyLogs.LOG("Utils", "094353465 - isSameParent", "firstCellData: " + firstCellData + " curCellData: " + curCellData);
+            MyLogs.LOG("Utils", "094353465 - isSameParent", "firstCellData: " + firstCellData + " curCellData: " + curCellData);
 
             return firstCellData.equals(curCellData);
         }
@@ -498,12 +541,12 @@ public class Utils {
     public static boolean isRouteCompleted(RouteObj routeObj, String[] parentPairs, String curId) {
         if (routeObj.getId().equals(curId) && routeObj.getTempRouteCoordonates() != null) {
             String firstCellData = routeObj.getTempRouteCoordonates().get(0);
-            //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "routes: " + routeObj.getTempRouteCoordonates().toString() + " firstCellData: " + firstCellData);
+            MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "routes: " + routeObj.getTempRouteCoordonates().toString() + " firstCellData: " + firstCellData);
 
             int listSize = routeObj.getTempRouteCoordonates().size();
             if (listSize > 1) {
                 String lastCellData = routeObj.getTempRouteCoordonates().get(listSize - 1);
-                //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "lastCellData: " + lastCellData);
+                MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "lastCellData: " + lastCellData);
 
                 return isRouteCompleted(parentPairs, firstCellData, lastCellData);
             }
@@ -515,7 +558,7 @@ public class Utils {
     public static boolean isRouteCompleted(String[] parentPairs, String cellData1, String cellData2) {
         for (String pairData : parentPairs) {
             List<String> arrayPairs = new ArrayList<String>(Arrays.asList(pairData.split(",")));
-            //MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "arrayPairs: " + arrayPairs.toString());
+            MyLogs.LOG("Utils", "094353465 - isRouteCompleted", "arrayPairs: " + arrayPairs.toString());
 
             if (arrayPairs.contains(cellData1) && arrayPairs.contains(cellData2))
                 return true;
@@ -544,11 +587,11 @@ public class Utils {
             case UP_RIGHT:
             case DOWN_LEFT:
             case DOWN_RIGHT:
-                //MyLogs.LOG("Utils", "094353465 - isInMiddleOfRoute", "true");
+                MyLogs.LOG("Utils", "094353465 - isInMiddleOfRoute", "true");
                 return true;
         }
 
-        //MyLogs.LOG("Utils", "000111222 - isInMiddleOfRoute", "false");
+        MyLogs.LOG("Utils", "000111222 - isInMiddleOfRoute", "false");
         return false;
     }
 

@@ -56,11 +56,10 @@ public class Dialogs {
         dialog.show();
     }
 
-
     public static void showShareToUserDialog(final Activity context, String res, final OnGoNextLevelListener listener) {
         final Dialog dialog = new Dialog(context);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        dialog.setContentView(R.layout.dialog_done);
+        dialog.setContentView(R.layout.dialog_done_level);
 
         if (dialog.getWindow() != null)
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
@@ -80,4 +79,5 @@ public class Dialogs {
 
         dialog.show();
     }
+
 }

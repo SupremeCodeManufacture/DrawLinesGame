@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dialog_completed"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:padding="@dimen/custom_dim_margin">
+
+
+    <LinearLayout
+        android:id="@+id/zone_no_ads"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_no_ads"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/zone_buy_no_ads"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_btn"
+            android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+            android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn">
+
+            <TextView
+                android:id="@+id/tv_001"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_price_int"
+                android:text="@string/txt_buy_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small" />
+
+            <TextView
+                android:id="@+id/tv_price_int"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/tv_001"
+                android:text="$1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_medium_xs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_toEndOf="@+id/tv_price_int"
+                android:text="99"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small_xs" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/zone_lvls"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/img_itm_dim"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_no_lock"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/zone_buy_unlocked"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_btn"
+            android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+            android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn">
+
+            <TextView
+                android:id="@+id/tv_0011"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_price_int1"
+                android:text="@string/txt_buy_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small" />
+
+            <TextView
+                android:id="@+id/tv_price_int1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_toEndOf="@+id/tv_0011"
+                android:text="$1"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_medium_xs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="3dp"
+                android:layout_toEndOf="@+id/tv_price_int1"
+                android:text="99"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small_xs" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/zone_full"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/img_itm_dim"
+            android:gravity="center_horizontal"
+            android:text="@string/txt_buy_all"
+            android:textColor="@color/primary_text"
+            android:textSize="@dimen/txt_large"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:id="@+id/zone_buy_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/activity_vertical_margin"
+            android:background="@drawable/bg_btn"
+            android:paddingStart="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingTop="@dimen/custom_dim_btn_padding_top_btn"
+            android:paddingEnd="@dimen/custom_dim_btn_padding_right_left"
+            android:paddingBottom="@dimen/custom_dim_btn_padding_top_btn">
+
+            <TextView
+                android:id="@+id/tv_111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/txt_buy_deal"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_medium_xs"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_00111"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@+id/tv_price_int11"
+                android:text="@string/txt_buy_now"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small" />
+
+            <TextView
+                android:id="@+id/tv_price_int11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_111"
+                android:layout_marginStart="@dimen/activity_horizontal_margin"
+                android:layout_marginTop="@dimen/custom_dim_btn_padding_top_btn"
+                android:layout_toEndOf="@+id/tv_00111"
+                android:text="$2"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_medium_xs" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/tv_price_int11"
+                android:layout_marginStart="3dp"
+                android:layout_toEndOf="@+id/tv_price_int11"
+                android:text="99"
+                android:textColor="@color/white"
+                android:textSize="@dimen/txt_small_xs" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>

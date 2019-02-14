@@ -21,11 +21,24 @@
         tools:text="99" />
 
     <ImageView
-        android:id="@+id/ic_status"
+        android:id="@+id/ic_status_passed"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_check_100" />
+        android:src="@drawable/ic_check_100"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/ic_status_locked"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:padding="6dp"
+        android:src="@drawable/ic_lock"
+        android:visibility="gone"
+        tools:visibility="visible" />
 
 </RelativeLayout>

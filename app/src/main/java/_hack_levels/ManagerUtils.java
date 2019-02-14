@@ -36,10 +36,10 @@ public class ManagerUtils {
                 FileWriter out = new FileWriter(file);
                 out.write(src);
                 out.close();
-                //MyLogs.LOG("MyLogs", "writeContentInFile", "New content is written in file: " + file.getAbsolutePath());
+                MyLogs.LOG("MyLogs", "writeContentInFile", "New content is written in file: " + file.getAbsolutePath());
 
             } catch (IOException e) {
-                //MyLogs.LOG("FileWorker", "writeContentInFile", "Exception: " + e);
+                MyLogs.LOG("FileWorker", "writeContentInFile", "Exception: " + e);
             }
         }
     }
@@ -66,13 +66,13 @@ public class ManagerUtils {
             }
         }
 
-        //MyLogs.LOG("ManagerUtils", "convert", "hioak: " + levelObjs.size());
+        MyLogs.LOG("ManagerUtils", "convert", "hioak: " + levelObjs.size());
         writeContentInFile(new Gson().toJson(levelObjs));
     }
 
     private static Pair<RouteObj[], String[]> getObj(String input) {
         input = input.replaceAll("\\s+", "");
-        //MyLogs.LOG("ManagerUtils", "getObj", "iobanavrot: " + input);
+        MyLogs.LOG("ManagerUtils", "getObj", "iobanavrot: " + input);
 
         List<String> list = new ArrayList<>();
         List<RouteObj> listRoutes = new ArrayList<>();
@@ -82,22 +82,22 @@ public class ManagerUtils {
         for (int pos = 0; pos < arrayPair.length; pos++) {
             String id = IDS_REPO[pos];
 
-            //MyLogs.LOG("ManagerUtils", "getObj", "id: " + id + " input: " + arrayPair[pos]);
+            MyLogs.LOG("ManagerUtils", "getObj", "id: " + id + " input: " + arrayPair[pos]);
             String points = arrayPair[pos].substring(1, arrayPair[pos].length() - 1);
 
             char[] chars = points.toCharArray();
-            //MyLogs.LOG("ManagerUtils", "getObj", "points: " + points + " chars: " + chars.length);
+            MyLogs.LOG("ManagerUtils", "getObj", "points: " + points + " chars: " + chars.length);
 
             //need pair  structure: 'id.row.col,id.row.col'
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.append(id).append(".").append(chars[0]).append(".").append(chars[1]).append(",").append(id).append(".").append(chars[2]).append(".").append(chars[3]);
-            //MyLogs.LOG("ManagerUtils", "getObj", "stringBuilder: " + stringBuilder.toString());
+            MyLogs.LOG("ManagerUtils", "getObj", "stringBuilder: " + stringBuilder.toString());
 
             listRoutes.add(new RouteObj(id));
             list.add(stringBuilder.toString());
         }
 
-        //MyLogs.LOG("ManagerUtils", "getObj", "list: " + list.toString());
+        MyLogs.LOG("ManagerUtils", "getObj", "list: " + list.toString());
         return new Pair<>(listRoutes.toArray(new RouteObj[0]), list.toArray(new String[0]));
     }
 }

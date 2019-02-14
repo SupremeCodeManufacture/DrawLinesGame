@@ -16,7 +16,6 @@ import data.GenericConstants;
 import logic.helpers.MyLogs;
 import logic.payment.PaymentHelper;
 import logic.payment.util.IabResult;
-import logic.payment.util.Purchase;
 
 public class SettingsActivity extends BaseActivity implements
         View.OnClickListener {
@@ -50,8 +49,10 @@ public class SettingsActivity extends BaseActivity implements
         tvAbout.setOnClickListener(this);
     }
 
-    private void decideDemoOrPro() {
-        if (App.isUserPro()) {
+    @Override
+    public void decideDemoOrPro() {
+        //MyLogs.LOG("SettingsActivity", "decideDemoOrPro", "...");
+        if (App.isPaidFull() || ((App.isPaidAds() || App.isOldPaidAds()) && App.isPaidUnlockLvls())) {
             tvUpgrade.setVisibility(View.GONE);
 
         } else {
@@ -106,23 +107,10 @@ public class SettingsActivity extends BaseActivity implements
     public void onIabSetupFinished(IabResult result) {
         if (result.isSuccess()) {
             //MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Setting up In-app Billing succesfull");
-            PaymentHelper.doLifePayment(SettingsActivity.this, App.getPaymentHelper(), SettingsActivity.this);
+            showUpgradeDialog();
 
         } else {
             //MyLogs.LOG("SettingsActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
-        }
-    }
-
-    @Override
-    public void onIabPurchaseFinished(IabResult result, Purchase purchase) {
-        if (result.isSuccess()) {
-            //MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "purchese SKU: " + purchase.getSku());
-            App.setUserPro(true);
-            decideDemoOrPro();
-            Toast.makeText(SettingsActivity.this, App.getAppCtx().getResources().getString(R.string.txt_worning_pro_done), Toast.LENGTH_LONG).show();
-
-        } else {
-            //MyLogs.LOG("SettingsActivity", "onIabPurchaseFinished", "Error purchasing: " + result);
         }
     }
 }

@@ -3,7 +3,6 @@ package view.activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.view.Window;
@@ -14,7 +13,7 @@ import android.widget.Toast;
 import com.SupremeManufacture.DrawLines.R;
 
 import data.App;
-import data.LevelObj;
+import data.DataWrapperObj;
 import logic.adapter.OnTableLevelSelectedListener;
 import logic.adapter.TableLevelsAdapter;
 import logic.async_await.AsyncTaskWorker;
@@ -24,11 +23,13 @@ import logic.helpers.MyLogs;
 import logic.helpers.Utils;
 import view.custom.WrapLayoutManager;
 
-public class LevelsActivity extends AppCompatActivity implements OnTableLevelSelectedListener {
+public class LevelsActivity extends BaseActivity implements OnTableLevelSelectedListener {
 
     private RecyclerView rvItms;
     public static final String ARG_TABLE_LEVEL_ID = "ARG_TABLE_LEVEL_ID";
     private String mTableTypeId;
+
+    private TableLevelsAdapter mTableLevelsAdapter;
 
 
     @Override
@@ -60,9 +61,10 @@ public class LevelsActivity extends AppCompatActivity implements OnTableLevelSel
         rvItms = (RecyclerView) findViewById(R.id.rv_itms);
     }
 
-    private void loadItems(LevelObj[] levelObjs) {
-        if (levelObjs != null && levelObjs.length > 0) {
-            rvItms.setAdapter(new TableLevelsAdapter(levelObjs, mTableTypeId,LevelsActivity.this));
+    private void loadItems(DataWrapperObj dataWrapperObj) {
+        if (dataWrapperObj != null) {
+            mTableLevelsAdapter = new TableLevelsAdapter(dataWrapperObj, mTableTypeId, LevelsActivity.this);
+            rvItms.setAdapter(mTableLevelsAdapter);
             rvItms.setLayoutManager(new WrapLayoutManager(4, StaggeredGridLayoutManager.VERTICAL));
             rvItms.setHasFixedSize(true);
 
@@ -75,16 +77,21 @@ public class LevelsActivity extends AppCompatActivity implements OnTableLevelSel
         //MyLogs.LOG("LevelsActivity", "asyncLoadAllRecent", "tableId: " + tableId);
 
         new AsyncTaskWorker(
-                new CallableObj<LevelObj[]>() {
-                    public LevelObj[] call() {
-                        return Utils.getLevelObjs(tableId);
+                new CallableObj<DataWrapperObj>() {
+                    public DataWrapperObj call() {
+                        DataWrapperObj dataWrapperObj = new DataWrapperObj();
+                        dataWrapperObj.setLevelObjs(Utils.getLevelObjs(tableId));
+                        dataWrapperObj.setPassedLevels(Utils.getFinishedLevelsList());
+                        dataWrapperObj.setLockedLevels(Utils.getLockedLevelsList());
+
+                        return dataWrapperObj;
                     }
                 },
                 new OnAsyncDoneRsObjListener() {
                     @Override
                     public <T> void onDone(T t) {
                         if (t != null) {
-                            loadItems((LevelObj[]) t);
+                            loadItems((DataWrapperObj) t);
                         }
                     }
                 }
@@ -96,5 +103,17 @@ public class LevelsActivity extends AppCompatActivity implements OnTableLevelSel
         Intent intent = new Intent(LevelsActivity.this, GameActivity.class);
         intent.putExtra(ARG_TABLE_LEVEL_ID, Utils.getGameLevelsPos(mTableTypeId, levelId));
         startActivity(intent);
+    }
+
+    @Override
+    public void onLockedLevelSelected() {
+        showUpgradeDialog();
+    }
+
+    @Override
+    void decideDemoOrPro() {
+        if (App.isPaidFull() || App.isPaidUnlockLvls() && mTableLevelsAdapter != null) {
+            mTableLevelsAdapter.updateViews();
+        }
     }
 }

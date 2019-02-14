@@ -4,8 +4,13 @@ public class GenericConstants {
 
 
     public static String SUPPORT_EMAIL = "admindb@suprememanufacture.com";
-    public static final String KEY_IN_APP_SKU_ID = "version_ultimate";
     public static final int KEY_IN_APP_RESPONSE_CODE = 123;
+
+    public static final String KEY_IN_APP_NO_ADS_OLD_SKU_ID = "version_ultimate";
+    public static final String KEY_IN_APP_NO_ADS_SKU_ID = "no_ads";
+    public static final String KEY_IN_APP_NO_LOCK_SKU_ID = "unlock_levels";
+    public static final String KEY_IN_APP_FULL_ID = "full_pack";
+
 
     //cloud message topics & cmd
     public static final String TOPIC_ALL = "all";

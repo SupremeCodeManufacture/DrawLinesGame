@@ -2,7 +2,6 @@ package view.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -130,7 +129,7 @@ public class GameActivity extends AppCompatActivity implements
 
     private void setupAdBanner() {
         LinearLayout bannerHolder = (LinearLayout) findViewById(R.id.ll_banner);
-        if (!App.isUserPro()) {
+        if (!App.isOldPaidAds()) {
             bannerHolder.setVisibility(View.VISIBLE);
 
             CustomizeAds.setupAddBanner(
@@ -597,7 +596,7 @@ public class GameActivity extends AppCompatActivity implements
                 Dialogs.showShareToUserDialog(GameActivity.this, Utils.getLevelFinishSuccess(mGameLevelData.getParentCoordonates().length, mGameMovements), new OnGoNextLevelListener() {
                     @Override
                     public void onOpenNextLevel() {
-                        InterstitialAddsHelper.tryShowInterstitialAdNow(!App.isUserPro() && CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0);
+                        InterstitialAddsHelper.tryShowInterstitialAdNow(!App.isOldPaidAds() && CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0);
                         onOpenNext();
                     }
                 });

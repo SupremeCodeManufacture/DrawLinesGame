@@ -12,7 +12,6 @@ import android.widget.Toast;
 import com.SupremeManufacture.DrawLines.R;
 
 import data.App;
-import data.GenericConstants;
 import data.TableObj;
 import logic.adapter.OnTableSelectedListener;
 import logic.adapter.TablesAdapter;
@@ -23,7 +22,6 @@ import logic.helpers.MyLogs;
 import logic.helpers.Utils;
 import logic.payment.PaymentHelper;
 import logic.payment.util.IabResult;
-import logic.payment.util.Inventory;
 import view.custom.WrapLayoutManager;
 
 public class TablesActivity extends BaseActivity implements OnTableSelectedListener {
@@ -93,6 +91,11 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
     }
 
 
+    @Override
+    public void decideDemoOrPro() {
+       //no functional
+    }
+
     //=============================== PAYMENTS FUNCTIONAL ========================================//
     @Override
     public void onIabSetupFinished(IabResult result) {
@@ -102,19 +105,6 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
 
         } else {
             //MyLogs.LOG("TablesActivity", "onIabSetupFinished", "Problem setting up In-app Billing: " + result);
-        }
-    }
-
-    @Override
-    public void onQueryInventoryFinished(IabResult result, Inventory inventory) {
-        if (result.isSuccess()) {
-            boolean isPro = inventory.hasPurchase(GenericConstants.KEY_IN_APP_SKU_ID);
-
-            //MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "isPro: " + isPro);
-            App.setUserPro(isPro);
-
-        } else {
-            //MyLogs.LOG("TablesActivity", "onQueryInventoryFinished", "Error query inventory: " + result);
         }
     }
 }

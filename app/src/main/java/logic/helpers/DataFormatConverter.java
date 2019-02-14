@@ -13,7 +13,7 @@ public class DataFormatConverter {
 
     public static CloudDataObj getObjFromJson(String json) {
         try {
-            //MyLogs.LOG("DataFormatConverter", "getObjFromJson", "json: " + json);
+            MyLogs.LOG("DataFormatConverter", "getObjFromJson", "json: " + json);
             return new Gson().fromJson(json, CloudDataObj.class);
 
         } catch (Exception ex) {
