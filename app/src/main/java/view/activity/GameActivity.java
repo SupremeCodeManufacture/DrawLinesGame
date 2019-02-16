@@ -66,7 +66,7 @@ public class GameActivity extends AppCompatActivity implements
     private LinkedList<CellView> mDrawTempCellList = new LinkedList<>();
     private String mTempRouteId;
     private int mTempColorLine;
-    private boolean mIsDrawAllowed, mIsDifferentParentLock, mIsRouteCompletedLock, mIsJustLocked;
+    private boolean mIsDrawAllowed, mIsDifferentParentLock, mIsRouteCompletedLock;
 
     //game data
     private int mGameMovements;
@@ -129,7 +129,7 @@ public class GameActivity extends AppCompatActivity implements
 
     private void setupAdBanner() {
         LinearLayout bannerHolder = (LinearLayout) findViewById(R.id.ll_banner);
-        if (!App.isOldPaidAds()) {
+        if (!App.isOldPaidAds() && !App.isPaidAds()) {
             bannerHolder.setVisibility(View.VISIBLE);
 
             CustomizeAds.setupAddBanner(
@@ -596,7 +596,7 @@ public class GameActivity extends AppCompatActivity implements
                 Dialogs.showShareToUserDialog(GameActivity.this, Utils.getLevelFinishSuccess(mGameLevelData.getParentCoordonates().length, mGameMovements), new OnGoNextLevelListener() {
                     @Override
                     public void onOpenNextLevel() {
-                        InterstitialAddsHelper.tryShowInterstitialAdNow(!App.isOldPaidAds() && CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0);
+                        InterstitialAddsHelper.tryShowInterstitialAdNow(!App.isOldPaidAds() && !App.isPaidAds() && CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0);
                         onOpenNext();
                     }
                 });

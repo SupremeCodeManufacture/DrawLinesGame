@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -23,7 +24,9 @@ import logic.helpers.MyLogs;
 import logic.helpers.Utils;
 import view.custom.WrapLayoutManager;
 
-public class LevelsActivity extends BaseActivity implements OnTableLevelSelectedListener {
+public class LevelsActivity extends BaseActivity implements
+        OnTableLevelSelectedListener,
+        View.OnClickListener {
 
     private RecyclerView rvItms;
     public static final String ARG_TABLE_LEVEL_ID = "ARG_TABLE_LEVEL_ID";
@@ -42,11 +45,6 @@ public class LevelsActivity extends BaseActivity implements OnTableLevelSelected
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        final Window win = getWindow();
-        win.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.activity_types);
 
         initView();
@@ -114,6 +112,15 @@ public class LevelsActivity extends BaseActivity implements OnTableLevelSelected
     void decideDemoOrPro() {
         if (App.isPaidFull() || App.isPaidUnlockLvls() && mTableLevelsAdapter != null) {
             mTableLevelsAdapter.updateViews();
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+           case  R.id.btn_settings:
+            startActivity(new Intent(LevelsActivity.this, SettingsActivity.class));
+            break;
         }
     }
 }

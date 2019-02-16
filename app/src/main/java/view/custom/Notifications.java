@@ -27,7 +27,7 @@ public class Notifications {
 
 
     public static void showFCMNotification(int pid, String from, String messageBody, Uri googlePlayUri) {
-        MyLogs.LOG("Notifications", "showFCMNotification", "messageBody: " + messageBody + " googlePlayUri: " + googlePlayUri);
+        //MyLogs.LOG("Notifications", "showFCMNotification", "messageBody: " + messageBody + " googlePlayUri: " + googlePlayUri);
         NotificationManager notificationManager = setupNotifChannel();
         PendingIntent pendingIntent;
 
@@ -99,7 +99,7 @@ public class Notifications {
 
             // Register the channel with the system
             if (notificationManager != null) {
-                MyLogs.LOG("Notifications", "setupNotifChannel", "OK setup");
+                //MyLogs.LOG("Notifications", "setupNotifChannel", "OK setup");
                 notificationManager.createNotificationChannel(mChannel);
             }
         }

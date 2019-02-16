@@ -5,6 +5,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -24,7 +25,9 @@ import logic.payment.PaymentHelper;
 import logic.payment.util.IabResult;
 import view.custom.WrapLayoutManager;
 
-public class TablesActivity extends BaseActivity implements OnTableSelectedListener {
+public class TablesActivity extends BaseActivity implements
+        OnTableSelectedListener,
+        View.OnClickListener {
 
     private RecyclerView rvItms;
     public static final String ARG_TABLE_ID = "ARG_TABLE_ID";
@@ -33,11 +36,6 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        final Window win = getWindow();
-        win.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
-
         setContentView(R.layout.activity_types);
 
         initView();
@@ -93,7 +91,17 @@ public class TablesActivity extends BaseActivity implements OnTableSelectedListe
 
     @Override
     public void decideDemoOrPro() {
-       //no functional
+        //no functional
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btn_settings:
+                startActivity(new Intent(TablesActivity.this, SettingsActivity.class));
+                break;
+        }
     }
 
     //=============================== PAYMENTS FUNCTIONAL ========================================//
