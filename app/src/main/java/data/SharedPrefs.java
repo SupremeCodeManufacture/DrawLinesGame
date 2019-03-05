@@ -14,7 +14,7 @@ public class SharedPrefs {
     public static final String KEY_SP_IS_PAID_UNLOCK_LVLS = "KEY_SP_IS_PAID_UNLOCK_LVLS";
     public static final String KEY_SP_IS_PAID_FULL = "KEY_SP_IS_PAID_FULL";
     public static final String KEY_SP_SELECTED_THEME = "KEY_SP_SELECTED_THEME";
-    public static String SUPPORT_EMAIL = "admindb@suprememanufacture.com";
+    public static final String KEY_FIRST_LAUNCH = "KEY_FIRST_LAUNCH";
 
 
     public static void setSharedPreferencesString(String key, String string) {

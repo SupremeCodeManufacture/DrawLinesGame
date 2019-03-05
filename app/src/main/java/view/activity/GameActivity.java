@@ -35,7 +35,7 @@ import data.RouteObj;
 import logic.async_await.AsyncTaskWorker;
 import logic.async_await.CallableObj;
 import logic.async_await.OnAsyncDoneRsObjListener;
-import logic.helpers.MyLogs;
+import logic.helpers.DataFormatConverter;
 import logic.helpers.ThemeColorsHelper;
 import logic.helpers.Utils;
 import view.custom.CellView;
@@ -90,7 +90,7 @@ public class GameActivity extends AppCompatActivity implements
 
         initViews();
 
-        InitApp.doFirebaseInit(GameActivity.this, App.getAppCtx().getResources().getString(R.string.ads_app_id));
+        InitApp.doFirebaseInit(GameActivity.this, AdsRepo.getAppId(App.getAppCtx(), App.getAppBuilds(), App.getAppCtx().getResources().getString(R.string.ads_app_id)));
 
         InterstitialAddsHelper.prepareInterstitialAds(
                 GameActivity.this,
@@ -129,7 +129,7 @@ public class GameActivity extends AppCompatActivity implements
 
     private void setupAdBanner() {
         LinearLayout bannerHolder = (LinearLayout) findViewById(R.id.ll_banner);
-        if (!App.isOldPaidAds() && !App.isPaidAds()) {
+        if (DataFormatConverter.isPassedAdsFree() && !App.isPaidFull() && !App.isOldPaidAds() && !App.isPaidAds()) {
             bannerHolder.setVisibility(View.VISIBLE);
 
             CustomizeAds.setupAddBanner(
@@ -596,7 +596,8 @@ public class GameActivity extends AppCompatActivity implements
                 Dialogs.showShareToUserDialog(GameActivity.this, Utils.getLevelFinishSuccess(mGameLevelData.getParentCoordonates().length, mGameMovements), new OnGoNextLevelListener() {
                     @Override
                     public void onOpenNextLevel() {
-                        InterstitialAddsHelper.tryShowInterstitialAdNow(!App.isOldPaidAds() && !App.isPaidAds() && CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0);
+                        boolean isAllowedInterstitial = CUR_LEVEL_POS != 0 && CUR_LEVEL_POS % 3 == 0 && DataFormatConverter.isPassedAdsFree() && !App.isPaidFull() && !App.isOldPaidAds() && !App.isPaidAds();
+                        InterstitialAddsHelper.tryShowInterstitialAdNow(isAllowedInterstitial);
                         onOpenNext();
                     }
                 });

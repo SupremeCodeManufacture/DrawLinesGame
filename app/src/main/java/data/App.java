@@ -23,6 +23,7 @@ public class App extends Application {
     public static IabHelper PAYMENT_HELPER;
     public static int SELECTED_THEME;
     public static List<String> GAME_LEVELS = new ArrayList<>();
+    public static long FIRST_LAUNCH_MILIS;
 
 
     @Override
@@ -107,5 +108,14 @@ public class App extends Application {
     public static void setPaidFull(boolean paidFull) {
         PAID_FULL = paidFull;
         SharedPrefs.setSharedPreferencesBool(SharedPrefs.KEY_SP_IS_PAID_FULL, paidFull);
+    }
+
+    public static long getFirstLaunchMilis() {
+        return FIRST_LAUNCH_MILIS != 0 ? FIRST_LAUNCH_MILIS : SharedPrefs.getSharedPreferencesLong(SharedPrefs.KEY_FIRST_LAUNCH, 0);
+    }
+
+    public static void setFirstLaunchMilis(long firstLaunchMilis) {
+        FIRST_LAUNCH_MILIS = firstLaunchMilis;
+        SharedPrefs.setSharedPreferencesLong(SharedPrefs.KEY_FIRST_LAUNCH, firstLaunchMilis);
     }
 }

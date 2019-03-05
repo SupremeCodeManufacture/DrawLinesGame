@@ -25,6 +25,9 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         App.setAppBuilds(App.getAppBuilds() + 1);
 
+        if (App.getFirstLaunchMilis() == 0)
+            App.setFirstLaunchMilis(System.currentTimeMillis());
+
         onAsyncAutoDetectLockedLevels();
     }
 

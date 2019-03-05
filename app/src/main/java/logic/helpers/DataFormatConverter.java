@@ -6,6 +6,8 @@ import com.google.gson.Gson;
 
 import java.net.URLDecoder;
 
+import data.App;
+import data.GenericConstants;
 import logic.push_notification.CloudDataObj;
 
 public class DataFormatConverter {
@@ -31,6 +33,10 @@ public class DataFormatConverter {
         }
 
         return null;
+    }
+
+    public static boolean isPassedAdsFree() {
+        return System.currentTimeMillis() > (App.getFirstLaunchMilis() + GenericConstants.THREE_DAYS_IN_MILIS);
     }
 
 
