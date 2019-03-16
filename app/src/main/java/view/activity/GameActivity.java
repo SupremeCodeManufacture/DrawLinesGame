@@ -129,7 +129,7 @@ public class GameActivity extends AppCompatActivity implements
 
     private void setupAdBanner() {
         LinearLayout bannerHolder = (LinearLayout) findViewById(R.id.ll_banner);
-        if (DataFormatConverter.isPassedAdsFree() && !App.isPaidFull() && !App.isOldPaidAds() && !App.isPaidAds()) {
+        if (App.getAppBuilds() > 2 && !App.isPaidFull() && !App.isOldPaidAds() && !App.isPaidAds()) {
             bannerHolder.setVisibility(View.VISIBLE);
 
             CustomizeAds.setupAddBanner(
